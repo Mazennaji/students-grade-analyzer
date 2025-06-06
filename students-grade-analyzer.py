@@ -28,7 +28,7 @@ def count_passed(name,grades):
 name=[]
 grade=[]
 
-n=input("Enter number of students : ")
+n=int(input("Enter number of students : "))
 
 for i in range(n):
     names=input("Enter the student name : ")
