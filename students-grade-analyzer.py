@@ -1,43 +1,46 @@
-def display_student_summary(name,grades):
-    print("Student Summary : ")
-    for i, name in enumerate(names):
-        print(name, "-", grades)
-
+def display_student_summary(names, grades):
+    print("Student Summary:")
+    for i in range(len(names)):
+        print(names[i], "-", grades[i])
 
 def get_avg_grade(grades):
-    total =0
+    total = 0
     for grade in grades:
-        total+=grade
-    return total/len(grades)
+        total += grade
+    return total / len(grades) if len(grades) > 0 else 0
 
-def get_heighest_grade(name,grades):
-    max=grades[0]
-    for i, grade in enumerate(grades):
-        max=grades[i]
-    return name,max
+def get_highest_grade(names, grades):
+    if not grades:
+        return None, 0
+    max_grade = grades[0]
+    max_index = 0
+    for i in range(len(grades)):
+        if grades[i] > max_grade:
+            max_grade = grades[i]
+            max_index = i
+    return names[max_index], max_grade
 
-def count_passed(name,grades):
-    count =0
-    for i,grade in enumerate(grades):
-        if grade>=60:
-            count+=1
+def count_passed(grades):
+    count = 0
+    for grade in grades:
+        if grade >= 60:
+            count += 1
     return count
 
-name=[]
-grade=[]
+names = []
+grades = []
 
-n=int(input("Enter number of students : "))
+n = int(input("Enter number of students: "))
 
 for i in range(n):
-    names=input("Enter the student name : ")
-    grades=float(input("Enter your grade : "))
-    name.append(names)
-    grade.append(grades)
+    name = input("Enter the student name: ")
+    grade = float(input("Enter your grade: "))
+    names.append(name)
+    grades.append(grade)
 
-display=display_student_summary(names, grades)
-print(display)
+display_student_summary(names, grades)
 print("Average grade:", get_avg_grade(grades))
-top_student_grade=get_heighest_grade(names,grades)
-print("The highest grade in class: " , top_student_grade)
+top_name, top_grade = get_highest_grade(names, grades)
+print("Highest grade:", top_name, "-", top_grade)
 print("Number of students who passed:", count_passed(grades))
 
