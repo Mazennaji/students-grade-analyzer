@@ -1,6 +1,6 @@
 def display_student_summary(names, grades):
     print("Student Summary:")
-    for i in range(len(names)):
+    for i, name in enumerate(names):
         print(names[i], "-", grades[i])
 
 def get_avg_grade(grades):
@@ -14,7 +14,7 @@ def get_highest_grade(names, grades):
         return None, 0
     max_grade = grades[0]
     max_index = 0
-    for i in range(len(grades)):
+    for i, grade in enumerate(grades):
         if grades[i] > max_grade:
             max_grade = grades[i]
             max_index = i
