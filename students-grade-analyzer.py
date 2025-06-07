@@ -30,7 +30,7 @@ n=int(input("Enter number of students : "))
 
 for i in range(n):
     names=input("Enter the student name : ")
-    grades=input("Enter your grade : ")
+    grades=float(input("Enter your grade : "))
     name.append(names)
     grade.append(grades)
 
